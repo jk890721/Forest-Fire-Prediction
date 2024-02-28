@@ -1,10 +1,5 @@
 ## Forest Fire Project
-#### 
-
-
-## We will discover: 
-
-
+#### In this project, we will train and test the models using different models, including Random Forest, Zero-inflated model, and hurdle model. After finding the best model using MAE and MAD, we use Monte Carlo simulation to see how the result goes.  
 
 ## Dependencies 
 - readxl
