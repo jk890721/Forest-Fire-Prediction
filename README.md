@@ -1,5 +1,5 @@
 ## Forest Fire Project
-#### In this project, we will train and test the models using different models, including Random Forest, Zero-inflated model, and hurdle model. After finding the best model using MAE and MAD, we use Monte Carlo simulation to see how the result goes.  
+#### This project outlines a comprehensive analysis of forest fires, leveraging a range of statistical and machine learning techniques to investigate the factors influencing fire occurrences and the extent of areas affected. It meticulously details the variables involved, from spatial coordinates and weather conditions to fire weather indices, and conducts exploratory data analysis to understand the distribution and multicollinearity of these factors. The project applies models such as Zero-inflated Negative Binomial, hurdle models, Random Forest, and Gradient Boosting, focusing on optimizing predictions through variable selection and parameter tuning. Performance is evaluated using metrics like Mean Absolute Error and Mean Absolute Deviation, with Monte Carlo simulation further refining variable importance. This thorough study aims to enhance the prediction and understanding of forest fire dynamics, offering valuable insights for environmental science and forest management.  
 
 ## Dependencies 
 - readxl
