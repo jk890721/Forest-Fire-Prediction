@@ -1,4 +1,3 @@
-```{r}
 # Import library
 library(readxl)
 library(dplyr)
@@ -16,9 +15,7 @@ library(car)
 library(scales)
 library(glm2)
 
-```
 
-```{r}
 #import data
 forestfires <- read.csv("C:\\Users\\54088\\OneDrive\\桌面\\SW\\S5 2023\\STAT 4893W\\Second Project\\forestfires.csv")
 
@@ -50,9 +47,8 @@ forestfires <- forestfires %>%
                          day %in% "sun" ~ 7))
 
 forestfires$RH <- as.numeric(forestfires$RH)
-```
 
-```{r}
+
 EDA_forest <- forestfires
 par(mfrow = c(1, 9))
 
@@ -123,10 +119,9 @@ ggplot(EDA_forest, aes(x = area)) +
   geom_histogram(binwidth = 100, fill = "lightblue", color = "black") +
   theme_minimal() +
   ggtitle("Distribution of area")
-```
 
 
-```{r}
+
 # EDA for month
 month1 <- sum(forestfires$month == 1)
 month2 <- sum(forestfires$month == 2)
@@ -146,9 +141,9 @@ barplot(table(forestfires$month), col = colors, main = "Countplot for the days i
 
 colors <- c("#F8766D", "#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#FB61D7")
 barplot(table(forestfires$day), col = colors, main = "Count plot for the days in the week", names.arg = c("mon", "tue", "wed", "thu", "fri", "sat", "sun"))
-```
 
-```{r}
+
+
 # Zero-inflated poisson model
 zim_fires <- forestfires
 zim_fires$area <- round(zim_fires$area)
@@ -189,9 +184,9 @@ actual_zero <- ifelse(test_zim$area == 0, 1, 0)
 predicted <- ifelse(predict_zim > 0.5, 1, 0)
 table(actual_zero, predicted)
 mean(predicted!=test_zim$area)
-```
 
-```{r}
+
+
 # hurdle model
 hurdle_fires <- forestfires
 hurdle_fires$area <- round(hurdle_fires$area)
@@ -225,9 +220,9 @@ data.frame(
   cbind(mad_zim, mad_hurdle)
 )
 mae_zim
-```
 
-```{r}
+
+
 # Monte Carlo simulation 
 # We want to do variables selection, for count model, since we need the variables be general, we exclude the X, Y, month, day because it can vary from place to place. We rank in RH, DMC, DC, temp, FFMC, ISI, wind and rain in order. 
 # For zero-hurdle model, wind is the only model that help us.
@@ -290,9 +285,8 @@ hist(predict_hurdle)
 hist(sim_predictions)
 hist(forestfires$area)
 # I like the result because the plot looks like the real world situation. 
-```
 
-```{r}
+
 # 4052 single decision tree
 library(MASS)
 library(tree)
@@ -354,10 +348,10 @@ mae_rf_lecture
 # MAD for the test value
 mad_rf_lecture <- mean(abs(pred4r - mean(pred4r)))
 mad_rf_lecture
-```
 
 
-```{r}
+
+
 # Random Forest
 rf_fires <- forestfires
 
@@ -403,4 +397,4 @@ mae_rf
 # MAD
 mad_rf <- mean(abs(prediction_rf - mean(prediction_rf)))
 mad_rf
-```
+
